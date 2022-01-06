@@ -96,11 +96,6 @@ class FeedforwardNetwork(nn.Module):
           self.network.add_module(str(i*4+2), activations[activation_type])  
         
         self.network.add_module(('output'), nn.Linear(hidden_size, n_classes))
-        
-        
-
-
-        # Implement me!
 
     def forward(self, x, **kwargs):
         """
@@ -111,7 +106,6 @@ class FeedforwardNetwork(nn.Module):
         layers, pointwise nonlinear functions, and dropout.
         """
         return self.network(x)
-        #raise NotImplementedError
 
 def train_batch(X, y, model, optimizer, criterion, **kwargs):
     """
@@ -254,7 +248,6 @@ def main():
         print('Valid acc: %.4f' % (valid_accs[-1]))
 
     print('Final Test acc: %.4f' % (evaluate(model, test_X, test_y)))
-    print('===========================\n')
     # plot
     plot(epochs, train_mean_losses, ylabel='Loss', name='training-loss')
     plt.savefig('plots_Q4.2/loss_' + opt.model + 
