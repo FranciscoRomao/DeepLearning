@@ -83,7 +83,7 @@ class FeedforwardNetwork(nn.Module):
         ])
 
         self.network = nn.Sequential(
-            nn.Dropout(dropout),
+            #nn.Dropout(dropout),
             nn.Linear(n_features, hidden_size),
             nn.Dropout(dropout),
             activations[activation_type],
